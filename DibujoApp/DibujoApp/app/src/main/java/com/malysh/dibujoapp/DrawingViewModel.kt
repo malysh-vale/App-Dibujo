@@ -76,20 +76,3 @@ class DrawingViewModel : ViewModel() {
         }
     }
 }
-dd(last)
-    }
-
-    fun redo() {
-        if (redoStack.isEmpty()) return
-        val stroke = redoStack.removeAt(redoStack.lastIndex)
-        strokes.add(stroke)
-    }
-
-    fun canUndo(): Boolean = strokes.isNotEmpty()
-    fun canRedo(): Boolean = redoStack.isNotEmpty()
-
-    fun clearAll() {
-        strokes.clear()
-        redoStack.clear()
-    }
-}
