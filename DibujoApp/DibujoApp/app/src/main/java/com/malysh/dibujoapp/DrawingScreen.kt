@@ -36,6 +36,7 @@ private val PALETTE = listOf(
     Color(0xFFFFEB3B), Color(0xFF4CAF50), Color(0xFF2196F3), Color(0xFF9C27B0), Color.White
 )
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DrawingScreen(viewModel: DrawingViewModel) {
     val context = LocalContext.current
