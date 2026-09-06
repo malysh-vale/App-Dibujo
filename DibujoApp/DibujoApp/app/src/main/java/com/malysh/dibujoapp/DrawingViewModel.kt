@@ -3,26 +3,6 @@ package com.malysh.dibujoapp
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Path
-import androidx.lifecycle.ViewModel
-import androidx.compose.runtime.neverEqualPolicy
-
-/**
- * Estado central del lienzo.
- *
- * Diseño pensado para crecer: en vez de guardar bitmaps completos
- * para deshacer/rehacer (caro en memoria), guardamos la lista de
- * trazos (comandos de dibujo). Esto también nos servirá más adelante
- * para el sistema de capas: cada capa será simplemente su propia
- * lista de DrawnStroke.
- */
-package com.malysh.dibujoapp
-
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.neverEqualPolicy
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
