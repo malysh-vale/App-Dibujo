@@ -8,6 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: DibujoApp/DibujoApp
     steps:
       - uses: actions/checkout@v4
 
@@ -29,4 +32,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: dibujoapp-debug
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: DibujoApp/DibujoApp/app/build/outputs/apk/debug/app-debug.apk
