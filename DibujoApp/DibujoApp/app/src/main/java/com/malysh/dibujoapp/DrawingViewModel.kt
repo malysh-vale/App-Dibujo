@@ -7,6 +7,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.lifecycle.ViewModel
+import androidx.compose.runtime.neverEqualPolicy
 
 /**
  * Estado central del lienzo.
@@ -26,8 +27,8 @@ class DrawingViewModel : ViewModel() {
     private val redoStack = mutableStateListOf<DrawnStroke>()
 
     // Trazo que se está dibujando en este momento (mientras el dedo se mueve)
-    var currentPath by mutableStateOf<Path?>(null)
-        private set
+    var currentPath by mutableStateOf<Path?>(null, policy = neverEqualPolicy())
+    private set
 
     // Configuración actual del pincel
     var brushColor by mutableStateOf(Color.Black)
