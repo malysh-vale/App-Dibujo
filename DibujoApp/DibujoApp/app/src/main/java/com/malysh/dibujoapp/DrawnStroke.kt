@@ -3,14 +3,29 @@ package com.malysh.dibujoapp
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 
-/**
- * Representa un único trazo dibujado por el usuario.
- * Guardamos el Path junto con las propiedades del pincel usadas
- * en el momento de dibujarlo, para que deshacer/rehacer y el
- * futuro sistema de capas puedan reconstruir el dibujo exacto.
- */
+enum class BrushType {
+    LAPIZ,
+    MARCADOR,
+    AEROGRAFO
+}
+
 data class DrawnStroke(
     val path: Path,
     val color: Color,
-    val strokeWidthPx: Float
+    val strokeWidthPx: Float,
+    val opacity: Float = 1f,
+    val brushType: BrushType = BrushType.LAPIZ
 )
+
+fun brushLayers(brushType: BrushType): List<Pair<Float, Float>> {
+    return when (brushType) {
+        BrushType.LAPIZ -> listOf(1f to 1f)
+        BrushType.MARCADOR -> listOf(1f to 1f)
+        BrushType.AEROGRAFO -> listOf(
+            1.8f to 0.15f,
+            1.5f to 0.25f,
+            1.2f to 0.4f,
+            1.0f to 0.6f
+        )
+    }
+}
