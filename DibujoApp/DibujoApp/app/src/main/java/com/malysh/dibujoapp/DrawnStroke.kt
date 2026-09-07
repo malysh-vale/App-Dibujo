@@ -6,7 +6,8 @@ import androidx.compose.ui.graphics.Path
 enum class BrushType {
     LAPIZ,
     MARCADOR,
-    AEROGRAFO
+    AEROGRAFO,
+    BORRADOR
 }
 
 data class DrawnStroke(
@@ -21,6 +22,7 @@ fun brushLayers(brushType: BrushType): List<Pair<Float, Float>> {
     return when (brushType) {
         BrushType.LAPIZ -> listOf(1f to 1f)
         BrushType.MARCADOR -> listOf(1f to 1f)
+        BrushType.BORRADOR -> listOf(1f to 1f)
         BrushType.AEROGRAFO -> listOf(
             1.8f to 0.15f,
             1.5f to 0.25f,
